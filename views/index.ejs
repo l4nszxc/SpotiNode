@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Music Player & Uploader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212; /* Dark background like Spotify */
+            color: #ffffff; /* Light text for contrast */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Courier New';
+           
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #1db954; /* Spotify green */
+            font-size: 2.5rem; /* Larger font size for the title */
+            font-family: 'Courier New';
+            text-align: center;
+        }
+        .container {
+            background-color: #282828; /* Dark container like Spotify */
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+        }
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        input, textarea, button {
+            margin: 10px 0;
+            padding: 10px;
+            border: none; /* Remove border */
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input, textarea {
+            background-color: #404040; /* Dark input fields */
+            color: #ffffff; /* Light text for input fields */
+        }
+        input:focus, textarea:focus {
+            background-color: #606060; /* Lighter on focus */
+            outline: none; /* Remove outline */
+        }
+        button {
+            background-color: #1db954; /* Spotify green */
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none; /* Remove border */
+            
+            font-family: 'Courier New';
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #1aa34a; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <label for="title" style="color: #1db954; text-align: center ;">___________________________________________________</label>
+        <h1>SPOTIFY MUSIC PLAYER  HERNANDEZ LANS </h1>
+        <label for="title" style="color: #1db954; text-align: center ;">___________________________________________________</label>
+
+        <!-- Form for uploading music, title, artist, lyrics, and image -->
+        <form action="/save" method="POST" enctype="multipart/form-data">
+            <label for="title">Song Title:</label>
+            <input type="text" id="title" name="title" placeholder="" required>
+            <br>
+            <label for="artist">Artist:</label>
+            <input type="text" id="artist" name="artist" placeholder="" required>
+            <br>
+            <label for="lyrics">Lyrics:</label>
+            <textarea id="lyrics" name="lyrics" placeholder="" required></textarea>
+            <br>
+            <label for="musicFile">Music File:</label>
+            <input type="file" id="musicFile" name="file" accept="audio/*" required>
+            <br>
+            <label for="picture">Picture:</label>
+            <input type="file" id="picture" name="picture" accept="image/*" required>
+            <br>
+            <button type="submit">UPLOAD MUSIC</button>
+        </form>
+        
+        <form action="/playlist" method="GET">
+            <button type="submit">VIEW PLAYLIST</button>
+        </form>
+    </div>
+
+</body>
+</html>
